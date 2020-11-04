@@ -8,10 +8,10 @@ public class Kauppa {
     private Viitegeneraattori viitegeneraattori;
     private String kaupanTili;
 
-    public Kauppa() {
-        varasto = Varasto.getInstance();
-        pankki = Pankki.getInstance();
-        viitegeneraattori = Viitegeneraattori.getInstance();
+    public Kauppa(Varasto va, Pankki p, Viitegeneraattori vi) {
+        varasto = va;
+        pankki = p;
+        viitegeneraattori = vi;
         kaupanTili = "33333-44455";
     }
 
@@ -25,7 +25,7 @@ public class Kauppa {
     }
 
     public void lisaaKoriin(int id) {
-        if (varasto.saldo(id)>0) {
+        if (varasto.saldo(id) > 0) {
             Tuote t = varasto.haeTuote(id);             
             ostoskori.lisaa(t);
             varasto.otaVarastosta(t);
