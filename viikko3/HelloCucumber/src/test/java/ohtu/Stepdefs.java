@@ -22,7 +22,7 @@ public class Stepdefs {
     
     @When("it is incremented by {int}")
     public void itIsIncrementedBy(Integer val) {
-         counter.increment(val);       
+        counter.increment(val);       
     }
 
     @Then("the value should be {int}")
