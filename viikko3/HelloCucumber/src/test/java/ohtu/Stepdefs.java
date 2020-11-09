@@ -1,6 +1,7 @@
 
 package ohtu;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
@@ -18,15 +19,22 @@ public class Stepdefs {
     public void itIsIncremented() {
         counter.increase();
     }
+    
+    @When("it is incremented by {int}")
+    public void itIsIncrementedBy(Integer val) {
+         counter.increment(val);       
+    }
 
     @Then("the value should be {int}")
     public void theValueShouldBe(Integer val) {
         assertEquals(val.intValue(), counter.value());
     }
 
-    @When("it is incremented by {int}")
-    public void itIsIncrementedBy(Integer val) {
-         counter.increment(val);       
-    }    
+    @And("it is reset")
+    public void itIsReset() {
+        counter.reset();
+    }
 
 }
+
+
