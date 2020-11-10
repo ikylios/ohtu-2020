@@ -4,6 +4,7 @@ import io.cucumber.java.After;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.And;
 import static org.junit.Assert.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -28,8 +29,28 @@ public class Stepdefs {
         driver.get(baseUrl);
         WebElement element = driver.findElement(By.linkText("register new user"));       
         element.click();   
-    }    
+    }
 
+    @Given("user with username {string} with password {string} is successfully created")
+    public void successfulUserCreation(String username, String password) {
+        driver.get(baseUrl);
+        WebElement element = driver.findElement(By.linkText("register new user"));       
+        element.click();   
+        signUpWith(username, password);
+    }
+
+    @Given("user with username {string} and password {string} is tried to be created")
+    public void unsuccessfulUserCreation(String username, String password) {
+        driver.get(baseUrl);
+        WebElement element = driver.findElement(By.linkText("register new user"));       
+        element.click();   
+        signUpWith(username, password);
+        element = driver.findElement(By.linkText("back to home"));
+        element.click();
+        element = driver.findElement(By.linkText("login"));
+        element.click();
+    }
+        
     @When("a valid username {string} and password {string} and matching password confirmation are entered")
     public void validUsernameAndPasswordAreGiven(String username, String password) {
         signUpWith(username, password);
