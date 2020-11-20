@@ -59,28 +59,22 @@ public class TennisGame {
     }
 
     public String winningParty() {
-        String result = "";
         if (player1_score > player2_score) {
-            result += "player1";
-        } else {
-            result += "player2";
-        }
-        return result;
+            return "player1";
+        } 
+        return  "player2";
     }
 
     public String endGameChecker() {
-        String result = "";
-
         int scoreDifference = player1_score - player2_score;
 
         if (Math.abs(scoreDifference) >= 2) {
             return "Win for " + winningParty();
         } else if (Math.abs(scoreDifference) == 1) {
-            result += "Advantage " + winningParty();
+            return "Advantage " + winningParty();
         } else {
             return "Deuce";
         }
-        return result;
     }
 
 }
