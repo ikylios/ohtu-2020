@@ -11,6 +11,7 @@ public class Summa extends Komento {
 
     @Override
     public void suorita() {
+        
         sovellus.plus(Integer.parseInt(syotekentta.getText()));
         
         int laskunTulos = sovellus.tulos();

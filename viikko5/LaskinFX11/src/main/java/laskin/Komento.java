@@ -22,4 +22,10 @@ public abstract class Komento {
     }
 
     public abstract void suorita();
+    
+    public void peru() {
+        syotekentta.setText("");
+        sovellus.edellinen();
+        tuloskentta.setText("" + sovellus.tulos());
+    }  
 }

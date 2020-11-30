@@ -34,7 +34,7 @@ public class Tapahtumankuuntelija implements EventHandler {
             komento.suorita();
             this.edellinen = komento;
         } else {
-//            this.edellinen.peru();
+            this.edellinen.peru();
             this.edellinen = null;
         }
         
